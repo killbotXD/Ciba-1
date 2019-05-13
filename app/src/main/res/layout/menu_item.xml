@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
     android:elevation="21dp"
-    app:cardCornerRadius="18dp"
+    app:cardCornerRadius="1dp"
     app:cardElevation="10dp"
     >
 
@@ -24,7 +24,7 @@
             android:layout_alignParentTop="true"
             android:ellipsize="end"
             android:maxLines="1"
-            android:textColor="@android:color/white"
+            android:textColor="@color/colorPrimaryDark"
             android:text="Item Name"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
       <TextView
@@ -39,7 +39,7 @@
           android:paddingTop="10dp"
           android:text="Rs."
           android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
-          android:textColor="@android:color/white"/>
+          android:textColor="@color/colorPrimaryDark"/>
         <TextView
             android:id="@+id/text_view_item_price"
             android:layout_width="wrap_content"
@@ -49,7 +49,7 @@
             android:layout_toRightOf="@+id/rs"
             android:paddingLeft="2dp"
             android:ellipsize="end"
-           android:textColor="@android:color/white"
+           android:textColor="@color/colorPrimaryDark"
             android:maxLines="1"
             android:paddingTop="10dp"
             android:text="ITEM Price"

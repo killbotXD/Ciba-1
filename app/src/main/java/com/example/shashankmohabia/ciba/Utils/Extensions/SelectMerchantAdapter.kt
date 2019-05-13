@@ -11,12 +11,20 @@ import android.widget.TextView
 import android.widget.Toast
 import com.example.shashankmohabia.ciba.Core.MenuExpanded
 import com.example.shashankmohabia.ciba.R
+import com.example.shashankmohabia.ciba.Utils.Constants.MerchantData
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 
 
-class SelectMerchantAdapter(options: FirestoreRecyclerOptions<MerchantNameData>, private val mContext: Context) : FirestoreRecyclerAdapter<MerchantNameData, SelectMerchantAdapter.ItemHolder>(options) {
-    override fun onBindViewHolder(holder: ItemHolder, position: Int, model: MerchantNameData) {
+class SelectMerchantAdapter(options: FirestoreRecyclerOptions<MerchantData>, private val mContext: Context) : FirestoreRecyclerAdapter<MerchantData, SelectMerchantAdapter.ItemHolder>(options) {
+    override fun onBindViewHolder(holder: ItemHolder, position: Int, model: MerchantData) {
+        holder.textviewname.text=model.name.toString()
+
+        holder.layout.setOnClickListener {
+
+
+        }
+
     }
 
 
@@ -29,6 +37,8 @@ class SelectMerchantAdapter(options: FirestoreRecyclerOptions<MerchantNameData>,
 
 
     class ItemHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+            val textviewname=itemView.findViewById<TextView>(R.id.text_view_merchant_name)
+                val layout=itemView.findViewById<RelativeLayout>(R.id.relative_layout_item2)
 
 
     }

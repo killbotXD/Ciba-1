@@ -51,7 +51,7 @@ class MenuAdapter(options: FirestoreRecyclerOptions<ItemData>, private val mCont
                 itemView.setOnClickListener {
 
 
-                    Toast.makeText(itemView.context, "Fuck", Toast.LENGTH_LONG).show()
+                    Toast.makeText(itemView.context,itemView.id.toString(), Toast.LENGTH_LONG).show()
                 }
             }
 

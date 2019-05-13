@@ -31,6 +31,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.example.shashankmohabia.ciba.Auth.LoginActivity
+import com.example.shashankmohabia.ciba.Utils.Constants.currMerchant
 import com.example.shashankmohabia.ciba.Utils.Constants.currUser
 import com.example.shashankmohabia.ciba.Utils.Extensions.*
 import com.squareup.picasso.Picasso

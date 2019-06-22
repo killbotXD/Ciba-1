@@ -152,7 +152,7 @@
             android:background="@drawable/menu_item_background"
             android:text="Add to cart"
             android:textAlignment="center"
-            android:textColor="@color/common_google_signin_btn_text_dark" />
+            android:textColor="@color/common_google_signin_btn_text_light" />
 
 
         </LinearLayout>

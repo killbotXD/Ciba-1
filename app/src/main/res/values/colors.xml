@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="colorPrimary">#594691</color>
-    <color name="colorPrimaryDark">#3e2d70</color>
-    <color name="colorPrimaryLight">#9c7ff1</color>
+    <color name="colorPrimary">#0989FF</color>
+    <color name="colorPrimaryDark">#0A70CE</color>
+    <color name="colorPrimaryLight">#0989FF</color>
     <color name="bgBackSideColor">#f4f0ff</color>
     <color name="bgTitleLeft">#594691</color>
     <color name="bgTitleRight">#ffffff</color>

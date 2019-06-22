@@ -4,6 +4,9 @@
     <color name="colorPrimary">#0989FF</color>
     <color name="colorPrimaryDark">#0A70CE</color>
     <color name="colorPrimaryLight">#0989FF</color>
+    <color name="colorSecondary">#E91E63</color>
+    <color name="colorSecondaryDark">#C71A55</color>
+    <color name="colorSecondaryLight">#EC5387</color>
     <color name="bgBackSideColor">#f4f0ff</color>
     <color name="bgTitleLeft">#594691</color>
     <color name="bgTitleRight">#ffffff</color>

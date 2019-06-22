@@ -289,16 +289,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/horizontal_line3"
         app:layout_constraintVertical_bias="0.538" />
-    <Button
+    <android.support.design.button.MaterialButton
+        android:layout_height="68dp"
         android:id="@+id/btn_place_order"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:background="@color/colorSecondary"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:background="@drawable/background_gradient_login"
+        app:cornerRadius="8dp"
         android:text="Place order"
         android:textAllCaps="true"
         android:textColor="@android:color/primary_text_dark"

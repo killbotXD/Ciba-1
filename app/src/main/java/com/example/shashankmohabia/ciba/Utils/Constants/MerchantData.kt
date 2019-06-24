@@ -5,20 +5,19 @@ class MerchantData{
     var name :String? =null
     var paytmNumber : String? =  null
     var profileUrl : String ? = null
-
-    //var id :String? = null
+    var id :String? = null
 
     constructor(){
 
         //empty construction needed
     }
 
-    constructor(name: String?, paytmNumber: String?, profileUrl: String?, email: String?) {
+    constructor(email: String?, name: String?, paytmNumber: String?, profileUrl: String?, id: String?) {
+        this.email = email
         this.name = name
         this.paytmNumber = paytmNumber
         this.profileUrl = profileUrl
-        this.email = email
-        //this.id = id
+        this.id = id
     }
 
 

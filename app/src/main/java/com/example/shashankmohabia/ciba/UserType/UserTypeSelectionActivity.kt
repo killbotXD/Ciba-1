@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.ImageView
-import com.example.shashankmohabia.ciba.Auth.AddMenuForFirstTime
 import com.example.shashankmohabia.ciba.Auth.LoginActivity
 
 import com.example.shashankmohabia.ciba.R
@@ -18,6 +17,7 @@ class UserTypeSelectionActivity:AppCompatActivity() {
     val btnCustomer=findViewById<ImageView>(R.id.customer_option) as ImageView
     val btnMerchant =  findViewById<ImageView>(R.id.merchant_option)as ImageView
         var isCustomer : Boolean = false
+        //can minimize this code idiot hu mai
         btnCustomer.setOnClickListener {
             isCustomer=true
             val intent= Intent(this, LoginActivity::class.java)
@@ -26,7 +26,7 @@ class UserTypeSelectionActivity:AppCompatActivity() {
             finish()
         }
         btnMerchant.setOnClickListener {
-            val intent= Intent(this, AddMenuForFirstTime::class.java)
+            val intent= Intent(this, LoginActivity::class.java)
             intent.putExtra("isCustomer",isCustomer)
             startActivity(intent)
             finish()

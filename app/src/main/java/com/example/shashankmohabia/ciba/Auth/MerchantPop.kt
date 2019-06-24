@@ -67,6 +67,7 @@ class MerchantPop:Activity(){
         db.collection("MerchantList")
                 .add(merchant).addOnSuccessListener {
                     Toast.makeText(this, "User Added to list of users", Toast.LENGTH_SHORT).show()
+                    currMerchant.id=it.id
                 }
     }
 

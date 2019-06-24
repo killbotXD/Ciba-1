@@ -77,14 +77,16 @@
         android:checkedButton="@+id/first"
         android:orientation="horizontal">
         <RadioButton
-            android:id="@+id/first"
+            android:id="@+id/veg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="onRadioButonClicked"
             android:text="Vegetarian"/>
         <RadioButton
-            android:id="@+id/second"
+            android:id="@+id/non-veg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="onRadioButonClicked"
             android:text="Non-Vegertarian"/>
     </RadioGroup>
 

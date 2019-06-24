@@ -138,7 +138,7 @@ class LoginActivity : AppCompatActivity() {
                         currMerchant.email = doc["email_id"].toString()
                         currMerchant.paytmNumber = doc["paytmNumber"].toString()
                         currMerchant.profileUrl = doc["profileUrl"].toString()
-
+                        currMerchant.id=doc.id
                     }
                 }
     }
@@ -154,17 +154,11 @@ class LoginActivity : AppCompatActivity() {
                         currUser.name = document["name"].toString()
                         currUser.number = document["number"].toString()
                         currUser.profileUrl = document["prof_pic"].toString()
-
                     }
                 }
-
-
     }
 
-
     fun updateUI(account: GoogleSignInAccount?) {
-
-
         if (isCustomer.equals(true)) {
             val intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
@@ -173,10 +167,8 @@ class LoginActivity : AppCompatActivity() {
             val intent = Intent(this, MerchantActivity::class.java)
             startActivity(intent)
             finish()
-
         }
     }
-
 
     public override fun onStart() {
         super.onStart()

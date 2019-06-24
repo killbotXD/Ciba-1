@@ -27,11 +27,13 @@
         <activity android:name=".Core.MenuExpanded" />
         <activity android:name=".Core.Cart" />
         <activity android:name=".Core.MerchantActivity" />
+        <activity android:name=".Core.MerchantList"/>
         <activity
             android:name=".Auth.UserPop"
             android:theme="@style/GetInfo" />
         <activity android:name=".Auth.MerchantPop"
             android:theme="@style/GetInfo"/>
+        <activity android:name=".Auth.AddMenuForFirstTime"/>
     </application>
 
 </manifest>

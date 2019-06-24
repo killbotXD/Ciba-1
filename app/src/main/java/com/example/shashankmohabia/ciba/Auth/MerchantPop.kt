@@ -48,7 +48,7 @@ class MerchantPop:Activity(){
     }
 
     private fun updateUI() {
-        val intent = Intent(this, MerchantActivity::class.java)
+        val intent = Intent(this, AddMenuForFirstTime::class.java)
         startActivity(intent)
         finish()
     }

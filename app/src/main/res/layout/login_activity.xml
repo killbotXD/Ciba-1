@@ -8,85 +8,46 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:background="@drawable/background_gradient_login" />
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/colorPrimary" />
+
+
     </LinearLayout>
-    <LinearLayout
-        android:elevation="15dp"
-        android:id="@+id/login_card"
-        android:layout_marginTop="200dp"
-        android:layout_width="match_parent"
+
+
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/gsignin"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:background="@drawable/login_card"
-        android:orientation="vertical"
-        android:padding="20dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="Email Id" />
-            <EditText
-                android:id="@+id/login_email"
-                android:drawableRight="@drawable/login_ic_person"
-                android:drawablePadding="30dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="sonawane.1@gmail.com" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="Password" />
-            <EditText
-                android:id="@+id/login_passoword"
-                android:drawableRight="@drawable/login_ic_eye"
-                android:drawablePadding="30dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="***********" />
-            <Button
-                android:id="@+id/login_login"
-                android:background="@drawable/button_gradient_login"
-                android:textColor="#fff"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:text="        Login"
-                android:textSize="15sp"
-                android:textAllCaps="false" />
-            <com.google.android.gms.common.SignInButton
-                android:id="@+id/gsignin"
-                android:layout_marginTop="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-            </com.google.android.gms.common.SignInButton>
+        android:layout_marginTop="578dp"
+        android:layout_marginBottom="105dp"
+        android:elevation="10dp"/>
 
-    </LinearLayout>
     <TextView
-        android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/ciba_logo"
-        android:layout_centerHorizontal="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="110dp"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="501dp"
+        android:layout_marginEnd="227dp"
+        android:layout_marginRight="227dp"
+        android:layout_marginBottom="190dp"
         android:text="Login"
-        android:textColor="#fff"
+        android:textColor="#ffffff"
         android:textSize="30sp" />
-    <ImageView
-        android:id="@+id/ciba_logo"
-        android:layout_width="90dp"
-        android:layout_height="100dp"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/ic_login_top" />
+
 
 </RelativeLayout>

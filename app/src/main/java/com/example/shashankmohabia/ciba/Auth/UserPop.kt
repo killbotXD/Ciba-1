@@ -37,7 +37,7 @@ class UserPop : Activity() {
         val width: Int = dm.widthPixels
         val height: Int = dm.heightPixels
 
-        window.setLayout((width * 0.75).toInt(), (height * 0.75).toInt())
+        window.setLayout((width * 0.75).toInt(), (height * 0.65).toInt())
 
         val btn = findViewById<Button>(R.id.submit_button)
         btn.setOnClickListener {

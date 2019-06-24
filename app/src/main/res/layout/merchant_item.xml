@@ -47,7 +47,7 @@
         <Button
             android:id="@+id/accept_button"
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
             android:layout_below="@id/placed_on"
             android:layout_marginTop="14dp"
             android:background="#0AEB0A"
@@ -55,9 +55,9 @@
             android:text="ACCEPT"
             android:textSize="12sp"
             />
-        <Button
+        <android.support.design.button.MaterialButton
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
             android:layout_below="@id/placed_on"
             android:layout_marginStart="40dp"
             android:layout_marginLeft="40dp"

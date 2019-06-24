@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.ImageView
+import com.example.shashankmohabia.ciba.Auth.AddMenuForFirstTime
 import com.example.shashankmohabia.ciba.Auth.LoginActivity
 
 import com.example.shashankmohabia.ciba.R
@@ -25,7 +26,7 @@ class UserTypeSelectionActivity:AppCompatActivity() {
             finish()
         }
         btnMerchant.setOnClickListener {
-            val intent= Intent(this, LoginActivity::class.java)
+            val intent= Intent(this, AddMenuForFirstTime::class.java)
             intent.putExtra("isCustomer",isCustomer)
             startActivity(intent)
             finish()

@@ -161,9 +161,9 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.499" />
 
-    <Button
+    <android.support.design.button.MaterialButton
         android:id="@+id/submit_button"
-        android:layout_width="80dp"
+        android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
@@ -177,7 +177,7 @@
         app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.876" />
+        app:layout_constraintVertical_bias="0.616" />
 
 
 </android.support.constraint.ConstraintLayout>

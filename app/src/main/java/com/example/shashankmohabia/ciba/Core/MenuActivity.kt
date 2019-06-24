@@ -1,4 +1,4 @@
-    package com.example.shashankmohabia.ciba.Core
+package com.example.shashankmohabia.ciba.Core
 
 import android.app.SearchManager
 import android.content.Intent

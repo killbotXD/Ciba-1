@@ -52,6 +52,9 @@ class MerchantActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
             R.id.profile->{
                 Toast.makeText(this,"PROFILE",Toast.LENGTH_SHORT).show()
             }
+            R.id.menu ->{
+                showMerchantMenu()
+            }
             R.id.orders->{                Toast.makeText(this," ORDERS ",Toast.LENGTH_SHORT).show()
             }
             R.id.logout->{               logout()
@@ -61,6 +64,11 @@ class MerchantActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         }
         drawer_layout_merchant.closeDrawer(GravityCompat.START)
         return true
+    }
+
+    private fun showMerchantMenu() {
+
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -214,6 +222,7 @@ class MerchantActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         super.onStart()
 
         adapterMerchant!!.startListening()
+        nav_view_merchant.menu.getItem(2).setChecked(true)
     }
 
     override fun onStop() {

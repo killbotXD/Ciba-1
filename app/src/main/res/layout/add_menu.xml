@@ -80,13 +80,13 @@
             android:id="@+id/veg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="onRadioButonClicked"
+            android:onClick="onRadioButtonClicked"
             android:text="Vegetarian"/>
         <RadioButton
             android:id="@+id/non-veg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="onRadioButonClicked"
+            android:onClick="onRadioButtonClicked"
             android:text="Non-Vegertarian"/>
     </RadioGroup>
 

@@ -59,7 +59,11 @@ class AddMenuForFirstTime : AppCompatActivity() {
         db.collection("MerchantList").document(currMerchant.id.toString())
                 .collection("Menu")
                 .add(itemdata)
-                .addOnSuccessListener { Toasty.success(this, "one item added").show() }
+                .addOnSuccessListener {
+                    item_price.setText("")
+                    item_preptime.setText("")
+                    item_name.setText("")
+                    Toasty.success(this, "one item added").show() }
                 .addOnFailureListener { Toasty.error(this,"Error Adding Data").show() }
 
     }

@@ -82,7 +82,6 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 R.string.Navigation_drawer_open, R.string.Navigation_drawer_close){
             override fun onDrawerOpened(drawerView: View) {
                 super.onDrawerOpened(drawerView)
-             // Toast.makeText(drawerView.context,"working",Toast.LENGTH_SHORT).show()
                 setupFragment()
                 invalidateOptionsMenu()
             }
@@ -178,7 +177,7 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val userdp=navigationViewHeader.findViewById<ImageView>(R.id.userDP)
         val username = navigationViewHeader.findViewById<TextView>(R.id.UserName)
         val useremail = navigationViewHeader.findViewById<TextView>(R.id.UserEmail)
-        Glide.with(this).load(currUser.profileUrl).override(300,300).into(userdp)
+        Glide.with(this).load(currUser.profileUrl).override(330,330).into(userdp)
         username.text= currUser.name
         username.isAllCaps=true
         useremail.text= currUser.email
@@ -361,6 +360,7 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 //Toast.makeText(this,"menu",Toast.LENGTH_SHORT).show()
         adapter!!.startListening()
         setupFragment()
+        nav_view.menu.getItem(1).setChecked(true)
     }
 
     override fun onStop() {

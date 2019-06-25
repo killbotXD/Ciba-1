@@ -6,7 +6,13 @@
         <item
             android:id="@+id/profile"
             android:icon="@drawable/ic_user"
-            android:title="User PROFILE" />
+            android:iconTint="@color/colorPrimary"
+            android:title="User PROFILE"/>
+        <item
+            android:id="@+id/menu"
+            android:icon="@drawable/ic_library_books_black_24dp"
+            android:iconTint="@color/colorPrimary"
+            android:title="Menu"/>
         <item
             android:id="@+id/orders"
             android:icon="@drawable/ic_orders"

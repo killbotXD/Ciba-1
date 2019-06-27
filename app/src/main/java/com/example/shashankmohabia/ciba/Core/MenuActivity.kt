@@ -30,6 +30,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.example.shashankmohabia.ciba.Auth.LoginActivity
 import com.example.shashankmohabia.ciba.Utils.Constants.currMerchant
 import com.example.shashankmohabia.ciba.Utils.Constants.currUser
@@ -177,7 +178,7 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val userdp=navigationViewHeader.findViewById<ImageView>(R.id.userDP)
         val username = navigationViewHeader.findViewById<TextView>(R.id.UserName)
         val useremail = navigationViewHeader.findViewById<TextView>(R.id.UserEmail)
-        Glide.with(this).load(currUser.profileUrl).override(330,330).into(userdp)
+        Glide.with(this).load(currUser.profileUrl).override(330,330).apply(RequestOptions.circleCropTransform()).into(userdp)
         username.text= currUser.name
         username.isAllCaps=true
         useremail.text= currUser.email

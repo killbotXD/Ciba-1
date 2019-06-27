@@ -9,10 +9,7 @@
     tools:openDrawer="start">
 
 
-
-    <include
-        layout="@layout/toolbar_merchant" />
-
+    <include layout="@layout/toolbar_merchant" />
 
 
     <android.support.design.widget.NavigationView
@@ -23,9 +20,6 @@
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header"
         app:menu="@menu/drawer_menu" />
-
-
-
 
 
 </android.support.v4.widget.DrawerLayout>

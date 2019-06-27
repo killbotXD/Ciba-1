@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<android.support.design.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -19,15 +18,14 @@
             android:elevation="20dp"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            app:title="Orders">
-        </android.support.v7.widget.Toolbar>
+            app:title="Orders" />
     </android.support.design.widget.AppBarLayout>
 
     <fragment
         android:id="@+id/merchant_fragment"
+        android:name="com.example.shashankmohabia.ciba.Fragments.MerchantProfileFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="57dp"/>
-    <include
-        layout="@layout/content_2" />
+        android:layout_marginTop="56dp" />
+
 </android.support.design.widget.CoordinatorLayout>

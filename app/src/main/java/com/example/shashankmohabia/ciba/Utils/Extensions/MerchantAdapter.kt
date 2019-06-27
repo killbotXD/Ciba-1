@@ -14,7 +14,7 @@ import com.example.shashankmohabia.ciba.R
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 
-class MerchantAdapter(options: FirestoreRecyclerOptions<OrderData>, private val mContext: Context) : FirestoreRecyclerAdapter<OrderData, MerchantAdapter.ItemHolderMerchant>(options) {
+class MerchantAdapter(options: FirestoreRecyclerOptions<OrderData>, private val mContext: Context?) : FirestoreRecyclerAdapter<OrderData, MerchantAdapter.ItemHolderMerchant>(options) {
 
 
     override fun onBindViewHolder(holder: ItemHolderMerchant, position: Int, model: OrderData) {

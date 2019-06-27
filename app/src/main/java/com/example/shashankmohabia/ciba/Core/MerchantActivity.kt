@@ -5,8 +5,12 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.NavigationView
+import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentManager
+import android.support.v4.app.FragmentTransaction
 import android.support.v4.view.GravityCompat
 import android.support.v4.view.MenuItemCompat
+import android.support.v4.view.ViewCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -21,6 +25,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import com.bumptech.glide.Glide
+import com.example.shashankmohabia.ciba.Fragments.MerchantMenuFragment
+import com.example.shashankmohabia.ciba.Fragments.MerchantOrdersFragment
+import com.example.shashankmohabia.ciba.Fragments.MerchantProfileFragment
 import com.example.shashankmohabia.ciba.R
 import com.example.shashankmohabia.ciba.UserType.UserTypeSelectionActivity
 import com.example.shashankmohabia.ciba.Utils.Constants.currMerchant
@@ -45,17 +52,25 @@ val dbmerch = FirebaseFirestore.getInstance()
 
 
 class MerchantActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
-    var adapterMerchant: MerchantAdapter? = null
-    var queryMerchant  = dbmerch.collection("Orders").orderBy("time")//.whereArrayContains("placedTo", currMerchant.name.toString())
-    override fun onNavigationItemSelected(p0: MenuItem): Boolean {
+
+   override fun onNavigationItemSelected(p0: MenuItem): Boolean {
+       var fragment:Fragment=MerchantOrdersFragment()
         when(p0.itemId){
             R.id.profile->{
-                Toast.makeText(this,"PROFILE",Toast.LENGTH_SHORT).show()
+                removeFragment(fragment)
+               fragment=MerchantProfileFragment()
+               replaceFragment(fragment,R.id.merchant_fragment)
             }
             R.id.menu ->{
-                showMerchantMenu()
+                removeFragment(fragment)
+                supportFragmentManager.beginTransaction().remove(MerchantProfileFragment()).commit()
+                fragment=MerchantMenuFragment()
+                replaceFragment(fragment,R.id.merchant_fragment)
             }
-            R.id.orders->{                Toast.makeText(this," ORDERS ",Toast.LENGTH_SHORT).show()
+            R.id.orders->{
+                removeFragment(fragment)
+                fragment=MerchantOrdersFragment()
+                replaceFragment(fragment,R.id.merchant_fragment)
             }
             R.id.logout->{               logout()
             }
@@ -66,17 +81,13 @@ class MerchantActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         return true
     }
 
-    private fun showMerchantMenu() {
 
-
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.merchant_activity)
         val toolbar=findViewById<Toolbar>(R.id.toolbar_menu_merchant)
         setSupportActionBar(toolbar)
-
         val toggle: ActionBarDrawerToggle = object : ActionBarDrawerToggle(this, drawer_layout_merchant, toolbar_menu_merchant,
                 R.string.Navigation_drawer_open, R.string.Navigation_drawer_close) {
             override fun onDrawerOpened(drawerView: View) {
@@ -97,7 +108,7 @@ class MerchantActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
 
         drawer_layout_merchant.addDrawerListener(toggle)
         toggle.syncState()
-       setUpRecyclerView(queryMerchant)
+
 
         nav_view_merchant.setNavigationItemSelectedListener(this)
 
@@ -111,72 +122,12 @@ class MerchantActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
 
     }
 
-    private fun setUpRecyclerView(query: Query) {
-        val options: FirestoreRecyclerOptions<OrderData> = FirestoreRecyclerOptions.Builder<OrderData>()
-                .setQuery(query, OrderData::class.java)
-                .build()
-
-        adapterMerchant = MerchantAdapter(options, this)
-        // maybe a bug like can i use the sme recycler view agian
-        val recyclerView = findViewById<RecyclerView>(R.id.recycler_view_merchant)
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = adapterMerchant
 
 
-    }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inflater: MenuInflater = menuInflater
-        inflater.inflate(R.menu.menu_menu, menu)
-        val searchView = MenuItemCompat.getActionView(menu!!.findItem(R.id.search_menu)) as SearchView
-        val searchManager: SearchManager = getSystemService(SEARCH_SERVICE) as SearchManager
-        searchView.setSearchableInfo(searchManager.getSearchableInfo(componentName))
-
-
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(text: String): Boolean {
-                if (!text.trim { it <= ' ' }.isEmpty()) {
-                   // search(text)
-                    filteredData.filterData.clear()
-                  //  setupSearchRecyclerView()
-                } else {
-                }
-                //setupSearchRecyclerView()
-                return false
-            }
-
-            override fun onQueryTextChange(newText: String): Boolean {
-                filteredData.filterData.clear()
-
-                if (newText.trim { it <= ' ' }.isEmpty()) {
-                    setUpRecyclerView(query)
-                    adapter!!.startListening()
-                    filteredData.filterData.clear()
-
-                } else {
-
-                    //search(newText)
-                    //setupSearchRecyclerView()
-
-
-                }
-
-                return false
-            }
-        })
-        searchView.setOnSearchClickListener {
-          //  Toast.makeText(this@MenuActivity, "FUCK_ME2", Toast.LENGTH_SHORT).show()
-
-        }
-        searchManager.setOnCancelListener {
-           // Toast.makeText(this@MenuActivity, "FUCK_ME_3", Toast.LENGTH_SHORT).show()
-
-        }
-        searchView.setOnCloseListener {
-            //Toast.makeText(this@MenuActivity, "FUCK", Toast.LENGTH_SHORT).show()
-            return@setOnCloseListener false
-        }
-
+        inflater.inflate(R.menu.merchant_menu, menu)
 
         return true
     }
@@ -221,12 +172,24 @@ class MerchantActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
     override fun onStart() {
         super.onStart()
 
-        adapterMerchant!!.startListening()
         nav_view_merchant.menu.getItem(2).setChecked(true)
     }
 
     override fun onStop() {
         super.onStop()
-            adapterMerchant!!.stopListening()
+
     }
 }
+inline fun FragmentManager.inTransaction(func:FragmentTransaction.() -> FragmentTransaction){
+    beginTransaction().func().commit()
+}
+fun AppCompatActivity.addFragment(fragment:Fragment,Id:Int){
+    supportFragmentManager.inTransaction { add(Id,fragment) }
+}
+fun AppCompatActivity.replaceFragment(fragment:Fragment,Id:Int){
+    supportFragmentManager.inTransaction { replace(Id,fragment) }
+}
+fun AppCompatActivity.removeFragment(fragment: Fragment){
+    supportFragmentManager.inTransaction { remove(fragment) }
+}
+

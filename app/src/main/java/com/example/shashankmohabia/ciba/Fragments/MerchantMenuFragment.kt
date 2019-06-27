@@ -7,8 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.shashankmohabia.ciba.R
 
-class ProfileFragment:Fragment(){
+class MerchantMenuFragment:Fragment(){
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.merchant_profile_fragment,container,false)
+        return inflater.inflate(R.layout.merchant_menu_fragment,container,false)
     }
 }

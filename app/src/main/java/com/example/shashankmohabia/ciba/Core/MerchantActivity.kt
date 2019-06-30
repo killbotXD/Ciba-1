@@ -1,6 +1,5 @@
 package com.example.shashankmohabia.ciba.Core
 
-import android.app.SearchManager
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -9,38 +8,27 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentTransaction
 import android.support.v4.view.GravityCompat
-import android.support.v4.view.MenuItemCompat
-import android.support.v4.view.ViewCompat
 import android.support.v7.app.ActionBarDrawerToggle
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.SearchView
 import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.example.shashankmohabia.ciba.Fragments.MerchantMenuFragment
 import com.example.shashankmohabia.ciba.Fragments.MerchantOrdersFragment
 import com.example.shashankmohabia.ciba.Fragments.MerchantProfileFragment
 import com.example.shashankmohabia.ciba.R
 import com.example.shashankmohabia.ciba.UserType.UserTypeSelectionActivity
 import com.example.shashankmohabia.ciba.Utils.Constants.currMerchant
-import com.example.shashankmohabia.ciba.Utils.Constants.currUser
-import com.example.shashankmohabia.ciba.Utils.Extensions.MerchantAdapter
-import com.example.shashankmohabia.ciba.Utils.Extensions.OrderData
-import com.example.shashankmohabia.ciba.Utils.Extensions.filteredData
-import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.Query
 import kotlinx.android.synthetic.main.menu_activity.*
 import kotlinx.android.synthetic.main.merchant_activity.*
 import kotlinx.android.synthetic.main.toolbar_merchant.*
@@ -122,17 +110,12 @@ class MerchantActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
 
     }
 
-
-
-
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inflater: MenuInflater = menuInflater
         inflater.inflate(R.menu.merchant_menu, menu)
 
         return true
     }
-
-
 
     override fun onBackPressed() {
         if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
@@ -147,7 +130,7 @@ class MerchantActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         val userdp = navigationViewHeader.findViewById<ImageView>(R.id.userDP)
         val username = navigationViewHeader.findViewById<TextView>(R.id.UserName)
         val useremail = navigationViewHeader.findViewById<TextView>(R.id.UserEmail)
-        Glide.with(this).load(currMerchant.profileUrl).override(300, 300).into(userdp)
+        Glide.with(this).load(currMerchant.profileUrl).override(330, 330).apply(RequestOptions.circleCropTransform()).into(userdp)
         username.text = currMerchant.name
         username.isAllCaps = true
         useremail.text = currMerchant.email
@@ -171,8 +154,25 @@ class MerchantActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
 
     override fun onStart() {
         super.onStart()
-
+        setupFragment()
+        val account = GoogleSignIn.getLastSignedInAccount(this)
+        addCurrentMerchantData(account!!.email.toString())
+        Toast.makeText(this, currMerchant.id.toString(),Toast.LENGTH_SHORT).show()
         nav_view_merchant.menu.getItem(2).setChecked(true)
+    }
+    private fun addCurrentMerchantData(email:String) {
+        val query = dbmerch.collection("MerchantList").whereEqualTo("email_id",email)
+        query.get()
+                .addOnSuccessListener {
+                    for (doc in it) {
+                        currMerchant.name = doc["name"].toString()
+                        currMerchant.email = doc["email_id"].toString()
+                        currMerchant.paytmNumber = doc["paytmNumber"].toString()
+                        currMerchant.profileUrl = doc["prof_pic"].toString()
+                        currMerchant.id=doc.id
+                    }
+                }
+
     }
 
     override fun onStop() {

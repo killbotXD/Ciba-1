@@ -3,7 +3,9 @@ package com.example.shashankmohabia.ciba.Core
 import android.app.SearchManager
 import android.content.Intent
 import android.os.Bundle
+import android.support.design.widget.CoordinatorLayout
 import android.support.design.widget.NavigationView
+import android.support.design.widget.Snackbar
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
@@ -36,6 +38,7 @@ import com.example.shashankmohabia.ciba.Utils.Constants.currMerchant
 import com.example.shashankmohabia.ciba.Utils.Constants.currUser
 import com.example.shashankmohabia.ciba.Utils.Extensions.*
 import com.squareup.picasso.Picasso
+import es.dmoral.toasty.Toasty
 
 import kotlinx.android.synthetic.main.menu_activity.*
 import kotlinx.android.synthetic.main.nav_header.*
@@ -84,12 +87,13 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             override fun onDrawerOpened(drawerView: View) {
                 super.onDrawerOpened(drawerView)
                 setupFragment()
+                Toast.makeText(this@MenuActivity, currUser.name.toString(),Toast.LENGTH_SHORT).show()
                 invalidateOptionsMenu()
             }
 
             override fun onDrawerClosed(drawerView: View) {
                 super.onDrawerClosed(drawerView)
-                Toast.makeText(drawerView.context,"working",Toast.LENGTH_SHORT).show()
+
 
                 setupFragment()
                 invalidateOptionsMenu()
@@ -174,6 +178,7 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     private fun setupFragment() {
+        //Toasty.error(this, currUser.name.toString(),Toast.LENGTH_SHORT).show()
         val navigationViewHeader=nav_view.getHeaderView(0)
         val userdp=navigationViewHeader.findViewById<ImageView>(R.id.userDP)
         val username = navigationViewHeader.findViewById<TextView>(R.id.UserName)
@@ -183,7 +188,7 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         username.isAllCaps=true
         useremail.text= currUser.email
         //CHecking if the text view is null
-        if(currUser.name.equals("")){Toast.makeText(this,"EMPTY",Toast.LENGTH_SHORT).show()}
+
         username.text= currUser.name
 
 
@@ -237,15 +242,15 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
         })
         searchView.setOnSearchClickListener {
-            Toast.makeText(this@MenuActivity, "FUCK_ME2", Toast.LENGTH_SHORT).show()
+
 
         }
         searchManager.setOnCancelListener {
-            Toast.makeText(this@MenuActivity, "FUCK_ME_3", Toast.LENGTH_SHORT).show()
+
 
         }
         searchView.setOnCloseListener {
-            Toast.makeText(this@MenuActivity, "FUCK", Toast.LENGTH_SHORT).show()
+
             return@setOnCloseListener false
         }
 
@@ -357,8 +362,8 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onStart() {
         super.onStart()
-       // if(currUser.name.equals("")){Toast.makeText(this,"EMPTY",Toast.LENGTH_SHORT).show()}
-//Toast.makeText(this,"menu",Toast.LENGTH_SHORT).show()
+       //Toast.makeText(this, currUser.name.toString(),Toast.LENGTH_SHORT).show()
+
         adapter!!.startListening()
         setupFragment()
         nav_view.menu.getItem(1).setChecked(true)

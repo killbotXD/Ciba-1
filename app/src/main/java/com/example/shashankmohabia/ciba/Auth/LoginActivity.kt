@@ -93,7 +93,8 @@ class LoginActivity : AppCompatActivity() {
             }
             if (n > 0) {
                 if (isCustomer.equals(true)) {
-                    //adds current logged in users' data to an object current user
+                    //adds current logged in user data to an object current user
+                    Toast.makeText(this, currUser.name.toString(),Toast.LENGTH_SHORT).show()
                     addCurrentUserData()
                 } else {
                     //adds current logged in merchants data
@@ -106,7 +107,7 @@ class LoginActivity : AppCompatActivity() {
                  username.isAllCaps=true
                  useremail.text= currUser.email*/
                 updateUI(account)
-                Toast.makeText(this, "user Exitsts", Toast.LENGTH_SHORT).show()
+
 
 
             } else {
@@ -137,10 +138,11 @@ class LoginActivity : AppCompatActivity() {
                         currMerchant.name = doc["name"].toString()
                         currMerchant.email = doc["email_id"].toString()
                         currMerchant.paytmNumber = doc["paytmNumber"].toString()
-                        currMerchant.profileUrl = doc["profileUrl"].toString()
+                        currMerchant.profileUrl = doc["prof_pic"].toString()
                         currMerchant.id=doc.id
                     }
                 }
+
     }
 
     private fun addCurrentUserData() {
@@ -157,7 +159,7 @@ class LoginActivity : AppCompatActivity() {
                     }
                 }
     }
-
+        //I dont remember why account is an argumet
     fun updateUI(account: GoogleSignInAccount?) {
         if (isCustomer.equals(true)) {
             val intent = Intent(this, MenuActivity::class.java)
@@ -176,6 +178,7 @@ class LoginActivity : AppCompatActivity() {
         val account = GoogleSignIn.getLastSignedInAccount(this)
         if (account != null) {
             updateUI(account)
+
         }
     }
 }

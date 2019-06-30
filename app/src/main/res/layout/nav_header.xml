@@ -14,8 +14,7 @@
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
        android:layout_marginTop="20dp"
-       android:contentDescription="YOUR DP"
-           android:src="@mipmap/ic_launcher_round"/>
+       android:contentDescription="YOUR DP" />
 
     <TextView
         android:id="@+id/UserName"

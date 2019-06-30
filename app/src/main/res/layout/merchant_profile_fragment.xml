@@ -52,9 +52,10 @@
             android:id="@+id/merchant_profile_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="175dp"
+            android:layout_marginLeft="155dp"
             android:layout_marginTop="10dp"
             android:text="NAME"
+            android:textAlignment="center"
             android:textColor="#fff"
             android:textSize="20sp" />
 

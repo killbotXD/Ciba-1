@@ -52,7 +52,7 @@ class AddMenuForFirstTime : AppCompatActivity() {
         val itemdata = HashMap<String, Any>()
         itemdata["name"] = name
         itemdata["preptime"] = prepTime
-        itemdata["price"] = price
+        itemdata["price"] = price.toInt()
         itemdata["vegOrNot"] = vegOrNot
         itemdata["availability"] = "available"
 

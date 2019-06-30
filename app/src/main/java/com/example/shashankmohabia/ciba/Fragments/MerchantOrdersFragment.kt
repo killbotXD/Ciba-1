@@ -13,6 +13,7 @@ import com.example.shashankmohabia.ciba.Utils.Extensions.OrderData
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.Query
 import kotlinx.android.synthetic.main.merchant_orders_fragment.*
+import kotlinx.android.synthetic.main.toolbar_merchant.*
 
 
 class MerchantOrdersFragment: Fragment(){
@@ -26,6 +27,7 @@ class MerchantOrdersFragment: Fragment(){
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         setUpRecyclerView(queryMerchantOrders)
+        activity!!.toolbar_menu_merchant.title = "Orders"
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

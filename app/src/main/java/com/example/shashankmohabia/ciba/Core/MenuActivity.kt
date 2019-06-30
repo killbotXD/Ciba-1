@@ -87,7 +87,6 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             override fun onDrawerOpened(drawerView: View) {
                 super.onDrawerOpened(drawerView)
                 setupFragment()
-                Toast.makeText(this@MenuActivity, currUser.name.toString(),Toast.LENGTH_SHORT).show()
                 invalidateOptionsMenu()
             }
 
@@ -178,7 +177,7 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     private fun setupFragment() {
-        //Toasty.error(this, currUser.name.toString(),Toast.LENGTH_SHORT).show()
+
         val navigationViewHeader=nav_view.getHeaderView(0)
         val userdp=navigationViewHeader.findViewById<ImageView>(R.id.userDP)
         val username = navigationViewHeader.findViewById<TextView>(R.id.UserName)
@@ -362,7 +361,7 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onStart() {
         super.onStart()
-       //Toast.makeText(this, currUser.name.toString(),Toast.LENGTH_SHORT).show()
+
 
         adapter!!.startListening()
         setupFragment()

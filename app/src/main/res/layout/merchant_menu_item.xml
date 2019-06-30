@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:elevation="5dp"
     app:cardCornerRadius="4dp"
@@ -97,15 +97,25 @@
             android:textColor="@color/colorPrimaryDark" />
 
         <android.support.design.button.MaterialButton
-            android:id="@+id/menu_edit_button"
+            android:id="@+id/menu_item_edit_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:layout_below="@+id/text_view_item_name2"
-            android:layout_alignParentRight="true"
+            android:layout_marginLeft="100dp"
+            android:layout_toRightOf="@+id/text_view_item_price2"
+
             android:layout_marginTop="-4dp"
-            android:layout_marginRight="67dp"
             android:text="EDIT"
+            android:textSize="14sp" />
+        <android.support.design.button.MaterialButton
+            android:id="@+id/menu_item_remove_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_view_item_name2"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="-4dp"
+           android:layout_toRightOf="@+id/menu_item_edit_button"
+            android:text="REMOVE"
             android:textSize="14sp" />
 
     </RelativeLayout>

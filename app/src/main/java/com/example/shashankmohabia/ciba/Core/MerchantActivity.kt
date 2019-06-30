@@ -48,12 +48,14 @@ class MerchantActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
                 removeFragment(fragment)
                fragment=MerchantProfileFragment()
                replaceFragment(fragment,R.id.merchant_fragment)
+
             }
             R.id.menu ->{
                 removeFragment(fragment)
                 supportFragmentManager.beginTransaction().remove(MerchantProfileFragment()).commit()
                 fragment=MerchantMenuFragment()
                 replaceFragment(fragment,R.id.merchant_fragment)
+
             }
             R.id.orders->{
                 removeFragment(fragment)
@@ -157,7 +159,6 @@ class MerchantActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         setupFragment()
         val account = GoogleSignIn.getLastSignedInAccount(this)
         addCurrentMerchantData(account!!.email.toString())
-        Toast.makeText(this, currMerchant.id.toString(),Toast.LENGTH_SHORT).show()
         nav_view_merchant.menu.getItem(2).setChecked(true)
     }
     private fun addCurrentMerchantData(email:String) {

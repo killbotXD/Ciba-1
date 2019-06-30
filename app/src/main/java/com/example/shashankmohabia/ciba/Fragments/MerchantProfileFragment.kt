@@ -13,6 +13,7 @@ import com.example.shashankmohabia.ciba.Utils.Constants.currMerchant
 import com.example.shashankmohabia.ciba.Utils.Constants.currUser
 import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.merchant_profile_fragment.*
+import kotlinx.android.synthetic.main.toolbar_merchant.*
 
 class MerchantProfileFragment:Fragment(){
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -24,5 +25,6 @@ class MerchantProfileFragment:Fragment(){
         Glide.with(this).load(currMerchant.profileUrl).dontAnimate().apply(RequestOptions.circleCropTransform()).into(merchant_profile_img)
         merchant_profile_name.text= currMerchant.name.toString()
         merchant_profile_number.text= currMerchant.paytmNumber.toString()
+        activity!!.toolbar_menu_merchant.title = "Profile"
     }
 }

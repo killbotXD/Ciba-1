@@ -23,7 +23,7 @@ class MerchantMenuAdapter(options:FirestoreRecyclerOptions<ItemData>, private va
      p0.name.text=p2.name.toString()
         p0.price.text=p2.price.toString().trim()
         p0.preptime.text=p2.preptime.toString()
-        p0.itemView.menu_edit_button.setOnClickListener { Toast.makeText(mContext,"TODO",Toast.LENGTH_SHORT).show() }
+        p0.itemView.menu_item_edit_button.setOnClickListener { Toast.makeText(mContext,"TODO",Toast.LENGTH_SHORT).show() }
 
     }
     class ItemHolder(itemView : View):RecyclerView.ViewHolder(itemView){

@@ -14,6 +14,7 @@ import com.example.shashankmohabia.ciba.Utils.Extensions.MerchantMenuAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.Query
 import kotlinx.android.synthetic.main.merchant_menu_fragment.*
+import kotlinx.android.synthetic.main.toolbar_merchant.*
 
 class MerchantMenuFragment:Fragment(){
     var adapterMerchantMenu:MerchantMenuAdapter?=null
@@ -25,6 +26,7 @@ class MerchantMenuFragment:Fragment(){
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         setUpRecyclerView(queryMerchantMenu)
+        activity!!.toolbar_menu_merchant.title = "Menu"
     }
     private fun setUpRecyclerView(query: Query) {
         val options: FirestoreRecyclerOptions<ItemData> = FirestoreRecyclerOptions.Builder<ItemData>()
@@ -33,7 +35,6 @@ class MerchantMenuFragment:Fragment(){
 
         adapterMerchantMenu = MerchantMenuAdapter(options, this.context)
         // maybe a bug like can i use the sme recycler view agian
-
         merchant_menu_recyclerview.layoutManager = LinearLayoutManager(this.context)
         merchant_menu_recyclerview.adapter = adapterMerchantMenu
     }

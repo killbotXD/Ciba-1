@@ -1,5 +1,6 @@
 package com.example.shashankmohabia.ciba.Fragments
 
+import android.arch.lifecycle.ViewModelProviders
 import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -11,6 +12,7 @@ import com.example.shashankmohabia.ciba.Auth.AddMenuForFirstTime
 import com.example.shashankmohabia.ciba.Core.db
 import com.example.shashankmohabia.ciba.R
 import com.example.shashankmohabia.ciba.Utils.Constants.currMerchant
+import com.example.shashankmohabia.ciba.Utils.Extensions.Communicator
 import com.example.shashankmohabia.ciba.Utils.Extensions.ItemData
 import com.example.shashankmohabia.ciba.Utils.Extensions.MerchantMenuAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
@@ -19,6 +21,7 @@ import kotlinx.android.synthetic.main.merchant_menu_fragment.*
 import kotlinx.android.synthetic.main.toolbar_merchant.*
 
 class MerchantMenuFragment:Fragment(){
+    private var model: Communicator? =null
     var adapterMerchantMenu:MerchantMenuAdapter?=null
     val queryMerchantMenu= db.collection("MerchantList").document(currMerchant.id.toString()).collection("Menu").orderBy("name")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -28,6 +31,7 @@ class MerchantMenuFragment:Fragment(){
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         setUpRecyclerView(queryMerchantMenu)
+        model= ViewModelProviders.of(activity!!).get(Communicator::class.java)
         activity!!.toolbar_menu_merchant.title = "Menu"
         menu_edit_button.setOnClickListener {
             activity!!.supportFragmentManager.beginTransaction().replace(R.id.merchant_fragment,AddMenuItemsFragment()).commit()
@@ -39,7 +43,7 @@ class MerchantMenuFragment:Fragment(){
                 .setQuery(query, ItemData::class.java)
                 .build()
 
-        adapterMerchantMenu = MerchantMenuAdapter(options, this.context)
+        adapterMerchantMenu = MerchantMenuAdapter(options, this.context!!,model!!)
         // maybe a bug like can i use the sme recycler view agian
         merchant_menu_recyclerview.layoutManager = LinearLayoutManager(this.context)
         merchant_menu_recyclerview.adapter = adapterMerchantMenu
@@ -53,5 +57,8 @@ class MerchantMenuFragment:Fragment(){
     override fun onStop() {
         super.onStop()
         adapterMerchantMenu!!.stopListening()
+    }
+    public fun fsafe(){
+
     }
 }

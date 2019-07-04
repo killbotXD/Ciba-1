@@ -5,7 +5,8 @@
     android:layout_height="wrap_content"
     android:elevation="5dp"
     app:cardCornerRadius="4dp"
-    app:cardElevation="5dp">
+    app:cardElevation="5dp"
+    android:layout_margin="7dp">
 
     <RelativeLayout
         android:id="@+id/rel_layout_merchant_menu"
@@ -101,7 +102,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/text_view_item_name2"
-            android:layout_marginLeft="100dp"
+            android:layout_marginLeft="80dp"
             android:layout_toRightOf="@+id/text_view_item_price2"
 
             android:layout_marginTop="-4dp"

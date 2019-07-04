@@ -1,11 +1,13 @@
 package com.example.shashankmohabia.ciba.Fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.shashankmohabia.ciba.Auth.AddMenuForFirstTime
 import com.example.shashankmohabia.ciba.Core.db
 import com.example.shashankmohabia.ciba.R
 import com.example.shashankmohabia.ciba.Utils.Constants.currMerchant
@@ -27,6 +29,10 @@ class MerchantMenuFragment:Fragment(){
         super.onActivityCreated(savedInstanceState)
         setUpRecyclerView(queryMerchantMenu)
         activity!!.toolbar_menu_merchant.title = "Menu"
+        menu_edit_button.setOnClickListener {
+            activity!!.supportFragmentManager.beginTransaction().replace(R.id.merchant_fragment,AddMenuItemsFragment()).commit()
+        }
+
     }
     private fun setUpRecyclerView(query: Query) {
         val options: FirestoreRecyclerOptions<ItemData> = FirestoreRecyclerOptions.Builder<ItemData>()

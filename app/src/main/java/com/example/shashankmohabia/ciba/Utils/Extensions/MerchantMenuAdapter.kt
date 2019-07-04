@@ -7,9 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import com.example.shashankmohabia.ciba.Core.db
+import com.example.shashankmohabia.ciba.Core.menuRef
 import com.example.shashankmohabia.ciba.R
+import com.example.shashankmohabia.ciba.Utils.Constants.currMerchant
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
+import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.merchant_menu_item.view.*
 
 class MerchantMenuAdapter(options:FirestoreRecyclerOptions<ItemData>, private val mContext: Context?):FirestoreRecyclerAdapter<ItemData,MerchantMenuAdapter.ItemHolder>(options){
@@ -23,7 +27,15 @@ class MerchantMenuAdapter(options:FirestoreRecyclerOptions<ItemData>, private va
      p0.name.text=p2.name.toString()
         p0.price.text=p2.price.toString().trim()
         p0.preptime.text=p2.preptime.toString()
-        p0.itemView.menu_item_edit_button.setOnClickListener { Toast.makeText(mContext,"TODO",Toast.LENGTH_SHORT).show() }
+        p0.itemView.menu_item_edit_button.setOnClickListener {
+
+            }
+        p0.itemView.menu_item_remove_button.setOnClickListener {
+            menuRef.document(p2.id.toString()).delete().addOnSuccessListener {
+              
+                Toast.makeText(mContext,"DELETE SUCCECFUL",Toast.LENGTH_SHORT).show()
+            }
+        }
 
     }
     class ItemHolder(itemView : View):RecyclerView.ViewHolder(itemView){

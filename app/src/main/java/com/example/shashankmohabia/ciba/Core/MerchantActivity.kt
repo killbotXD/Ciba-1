@@ -37,7 +37,7 @@ import kotlinx.android.synthetic.main.toolbar_merchant.*
 lateinit var myGoogleSignInClient: GoogleSignInClient
 lateinit var mgso: GoogleSignInOptions
 val dbmerch = FirebaseFirestore.getInstance()
-
+var menuRef= db.collection("MerchantList").document(currMerchant.id.toString()).collection("Menu")
 
 class MerchantActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 

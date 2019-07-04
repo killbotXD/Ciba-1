@@ -22,15 +22,11 @@ class AddMenuForFirstTime : AppCompatActivity() {
         setSupportActionBar(toolbar_add_menu)
 
         add_btn.setOnClickListener {
-            if (item_name.text.isNullOrEmpty()) {
-                item_name.setError("This Field Cannot Be Empty")
-            } else if (item_preptime.text.isNullOrEmpty()) {
-                item_preptime.setError("This Field Cannot Be Empty")
-            } else if (item_price.text.isNullOrEmpty()) {
-                item_price.setError("This Field Cannot Be Empty")
-            } else {
-
-                addItem(item_name.text.toString(), item_preptime.text.toString(), item_price.text.toString(), vegOrNot)
+            when {
+                item_name.text.isNullOrEmpty() -> item_name.error = "This Field Cannot Be Empty"
+                item_preptime.text.isNullOrEmpty() -> item_preptime.error = "This Field Cannot Be Empty"
+                item_price.text.isNullOrEmpty() -> item_price.error = "This Field Cannot Be Empty"
+                else -> addItem(item_name.text.toString(), item_preptime.text.toString(), item_price.text.toString(), vegOrNot)
             }
 
         }
@@ -54,12 +50,14 @@ class AddMenuForFirstTime : AppCompatActivity() {
         itemdata["preptime"] = prepTime
         itemdata["price"] = price.toInt()
         itemdata["vegOrNot"] = vegOrNot
-        itemdata["availability"] = "available"
+        itemdata["availableOrNot"] = "available"
+        itemdata["id"]=""
 
         db.collection("MerchantList").document(currMerchant.id.toString())
                 .collection("Menu")
                 .add(itemdata)
                 .addOnSuccessListener {
+                    it.update("id",it.id)
                     item_price.setText("")
                     item_preptime.setText("")
                     item_name.setText("")

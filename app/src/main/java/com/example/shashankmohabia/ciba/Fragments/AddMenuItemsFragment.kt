@@ -48,10 +48,12 @@ class AddMenuItemsFragment():Fragment(){
         Item["price"]=item_price2.text.toString().toInt()
         Item["preptime"]=item_preptime2.text.toString()
         Item["vegOrNot"]=vegOrNot
-        Item["availability"]="available"
+        Item["availableOrNot"]="available"
+        Item["id"]=""
 
         db.collection("MerchantList").document(currMerchant.id.toString()).collection("Menu")
                 .add(Item).addOnSuccessListener {
+                    it.update("id",it.id)
                     Toasty.success(this.context!!,"SUCCESS", Toast.LENGTH_SHORT).show()
                 }.addOnCompleteListener {
 

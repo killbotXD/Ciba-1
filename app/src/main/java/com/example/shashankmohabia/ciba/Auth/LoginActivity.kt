@@ -163,7 +163,7 @@ class LoginActivity : AppCompatActivity() {
         //I dont remember why account is an argumet
     fun updateUI(account: GoogleSignInAccount?) {
         if (isCustomer.equals(true)) {
-            val intent = Intent(this, MenuActivity::class.java)
+            val intent = Intent(this, MerchantList::class.java)
             startActivity(intent)
             finish()
         } else {

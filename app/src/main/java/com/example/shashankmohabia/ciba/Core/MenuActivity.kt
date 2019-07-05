@@ -50,10 +50,9 @@ lateinit var mGoogleSignInClient: GoogleSignInClient
 lateinit var gso: GoogleSignInOptions
 val db = FirebaseFirestore.getInstance()
 val menuref = db.collection("Users")
-var user2 = HashMap<String, Any>()
 var adapter: MenuAdapter? = null
 var searchAdapter: SearchAdapter? = null
-val query = menuref.orderBy("name", Query.Direction.ASCENDING)
+
 
 class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     override fun onNavigationItemSelected(p0: MenuItem): Boolean {
@@ -71,10 +70,6 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
     }
-
-    val TAG = MenuActivity::class.java.simpleName
-   // lateinit var drawer: DrawerLayout
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -101,7 +96,7 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         drawer_layout.addDrawerListener(toggle)
         toggle.syncState()
-        setUpRecyclerView(query)
+
 
         nav_view.setNavigationItemSelectedListener(this)
 
@@ -225,7 +220,7 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
                 if (newText.trim { it <= ' ' }.isEmpty()) {
 
-                    setUpRecyclerView(query)
+
                     adapter!!.startListening()
                     filteredData.filterData.clear()
 
@@ -344,20 +339,7 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     }
 
-    private fun setUpRecyclerView(query: Query) {
 
-
-        val options: FirestoreRecyclerOptions<ItemData> = FirestoreRecyclerOptions.Builder<ItemData>()
-                .setQuery(query, ItemData::class.java)
-                .build()
-
-        adapter = MenuAdapter(options, this)
-
-        val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = adapter
-
-    }
 
     override fun onStart() {
         super.onStart()

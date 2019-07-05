@@ -14,6 +14,7 @@ import com.example.shashankmohabia.ciba.Utils.Extensions.MenuAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.Query
 import kotlinx.android.synthetic.main.customer_menu_fragment.*
+import kotlinx.android.synthetic.main.toolbaar_menu.*
 
 class CustomerMenuFragment: Fragment(){
     var adapter: MenuAdapter? = null
@@ -25,6 +26,7 @@ class CustomerMenuFragment: Fragment(){
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
             setUpRecyclerView(query)
+        activity!!.toolbar_menu.title = "Menu"
     }
     private fun setUpRecyclerView(query: Query) {
 

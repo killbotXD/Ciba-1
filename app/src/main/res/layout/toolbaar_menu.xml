@@ -23,5 +23,10 @@
             app:title="MENU">
         </android.support.v7.widget.Toolbar>
     </android.support.design.widget.AppBarLayout>
-
+    <fragment
+        android:id="@+id/customer_fragment"
+        android:name="com.example.shashankmohabia.ciba.Fragments.CustomerMenuFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="56dp"/>
 </android.support.design.widget.CoordinatorLayout>

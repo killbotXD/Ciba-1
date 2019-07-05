@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.support.design.widget.CoordinatorLayout
 import android.support.design.widget.NavigationView
 import android.support.design.widget.Snackbar
+import android.support.v4.app.Fragment
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
@@ -34,6 +35,9 @@ import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.shashankmohabia.ciba.Auth.LoginActivity
+import com.example.shashankmohabia.ciba.Fragments.CustomerMenuFragment
+import com.example.shashankmohabia.ciba.Fragments.CustomerOrdersFragment
+import com.example.shashankmohabia.ciba.Fragments.CustomerProfileFragment
 import com.example.shashankmohabia.ciba.Utils.Constants.currMerchant
 import com.example.shashankmohabia.ciba.Utils.Constants.currUser
 import com.example.shashankmohabia.ciba.Utils.Extensions.*
@@ -55,11 +59,24 @@ var searchAdapter: SearchAdapter? = null
 
 class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     override fun onNavigationItemSelected(p0: MenuItem): Boolean {
+        var fragment:Fragment=CustomerMenuFragment()
         when(p0.itemId){
             R.id.profile->{
-                Toast.makeText(this,"PROFILE",Toast.LENGTH_SHORT).show()
+                removeFragment(fragment)
+                fragment=CustomerProfileFragment()
+                replaceFragment(fragment,R.id.customer_fragment)
+
             }
-            R.id.orders->{                Toast.makeText(this," ORDERS ",Toast.LENGTH_SHORT).show()
+            R.id.menu ->{
+                removeFragment(fragment)
+                fragment=CustomerMenuFragment()
+                replaceFragment(fragment,R.id.customer_fragment)
+
+            }
+            R.id.orders->{
+                removeFragment(fragment)
+                fragment= CustomerOrdersFragment()
+                replaceFragment(fragment,R.id.customer_fragment)
             }
             R.id.logout->{               logout()
             }

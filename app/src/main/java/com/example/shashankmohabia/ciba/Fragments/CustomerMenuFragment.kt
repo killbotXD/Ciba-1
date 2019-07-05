@@ -3,11 +3,9 @@ package com.example.shashankmohabia.ciba.Fragments
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.shashankmohabia.ciba.Core.adapter
 import com.example.shashankmohabia.ciba.Core.db
 import com.example.shashankmohabia.ciba.R
 import com.example.shashankmohabia.ciba.Utils.Constants.currMerchant
@@ -18,6 +16,7 @@ import com.google.firebase.firestore.Query
 import kotlinx.android.synthetic.main.customer_menu_fragment.*
 
 class CustomerMenuFragment: Fragment(){
+    var adapter: MenuAdapter? = null
     val query= db.collection("MerchantList").document(currMerchant.id.toString()).collection("Menu").orderBy("name")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.customer_menu_fragment,container,false)
@@ -40,5 +39,15 @@ class CustomerMenuFragment: Fragment(){
         recycler_view.layoutManager = LinearLayoutManager(this.context)
         recycler_view.adapter = adapter
 
+    }
+
+    override fun onStart() {
+        super.onStart()
+        adapter!!.startListening()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        adapter!!.stopListening()
     }
 }

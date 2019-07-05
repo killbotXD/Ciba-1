@@ -50,7 +50,6 @@ lateinit var mGoogleSignInClient: GoogleSignInClient
 lateinit var gso: GoogleSignInOptions
 val db = FirebaseFirestore.getInstance()
 val menuref = db.collection("Users")
-var adapter: MenuAdapter? = null
 var searchAdapter: SearchAdapter? = null
 
 
@@ -221,7 +220,7 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 if (newText.trim { it <= ' ' }.isEmpty()) {
 
 
-                    adapter!!.startListening()
+
                     filteredData.filterData.clear()
 
                 } else {
@@ -343,16 +342,8 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onStart() {
         super.onStart()
-
-
-        adapter!!.startListening()
         setupFragment()
         nav_view.menu.getItem(1).setChecked(true)
-    }
-
-    override fun onStop() {
-        super.onStop()
-        adapter!!.stopListening()
     }
 
 }

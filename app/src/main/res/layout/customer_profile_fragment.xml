@@ -84,7 +84,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="50dp"
             android:text="Contact"
             android:textColor="#505050"
             android:textFontWeight="700"
@@ -144,6 +144,30 @@
             android:textColor="#000"
             android:layout_marginStart="20dp"
             android:textSize="20sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="Current Merchant"
+            android:textColor="@color/colorPrimaryLight"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/cur_merchant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="4dp"
+            android:text="Thar"
+            android:textColor="#000"
+            android:textSize="20sp" />
+        <android.support.design.button.MaterialButton
+            android:id="@+id/btn_change_merchant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="3dp"
+            android:text="change merchant"/>
 
     </LinearLayout>
     <android.support.design.widget.FloatingActionButton

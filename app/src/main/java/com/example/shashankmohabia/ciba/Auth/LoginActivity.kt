@@ -77,7 +77,7 @@ class LoginActivity : AppCompatActivity() {
 
     //checks if a person is a first time user or not
     fun userExists(account: GoogleSignInAccount?, email: String) {
-        var tempEmail: String? = null
+        var tempEmail: String
         var n = 0
 
         var query = dbref.collection("UserList")
@@ -156,6 +156,7 @@ class LoginActivity : AppCompatActivity() {
                         currUser.name = document["name"].toString()
                         currUser.number = document["number"].toString()
                         currUser.profileUrl = document["prof_pic"].toString()
+                        currUser.id = document["id"].toString()
                     }
                 }
     }

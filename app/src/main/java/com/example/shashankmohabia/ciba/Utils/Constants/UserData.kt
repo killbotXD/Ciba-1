@@ -10,6 +10,7 @@ class UserData{
     var number : String? =  null
     var profileUrl : String ? = null
     var email : String? =  null
+    var id :String?=null
 
     }
 

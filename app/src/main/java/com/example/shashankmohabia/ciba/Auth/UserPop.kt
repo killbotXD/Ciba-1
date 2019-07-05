@@ -60,6 +60,7 @@ class UserPop : Activity() {
         user["name"] = name
         user["number"] = number
         user["prof_pic"] = picURL
+        user["id"]=""
         currUser.roll = rollNum
         currUser.add = hostel
         currUser.email = email
@@ -69,6 +70,9 @@ class UserPop : Activity() {
 
         db.collection("UserList")
                 .add(user).addOnSuccessListener {
+                    it.update("id",it.id)
+                    currUser.id=it.id
+
                     Toast.makeText(this, "User Added to list of users", Toast.LENGTH_SHORT).show()
                 }
 

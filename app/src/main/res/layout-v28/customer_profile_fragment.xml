@@ -83,7 +83,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
             android:layout_marginTop="60dp"
             android:text="Contact"
             android:textColor="#505050"
@@ -94,18 +93,16 @@
             android:id="@+id/customer_profile_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
             android:text="1234567890"
             android:textColor="#000"
-            android:layout_marginStart="20dp"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
 
         <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
         android:text="Roll number"
         android:textColor="#505050"
@@ -116,18 +113,16 @@
             android:id="@+id/customer_profile_roll_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
             android:text="B18CSE053"
             android:textColor="#000"
-            android:layout_marginStart="20dp"
             android:textSize="20sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
             android:text="Address"
             android:textColor="#505050"
@@ -142,8 +137,7 @@
             android:layout_marginTop="10dp"
             android:text="G6 263"
             android:textColor="#000"
-            android:layout_marginStart="20dp"
-            android:textSize="20sp" />
+            android:textSize="20dp" />
 
     </LinearLayout>
     <android.support.design.widget.FloatingActionButton
@@ -152,7 +146,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
         android:layout_marginBottom="20dp"
         android:src="@drawable/ic_edit_white_24dp"
         />

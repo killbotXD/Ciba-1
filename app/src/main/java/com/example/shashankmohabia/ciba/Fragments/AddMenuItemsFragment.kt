@@ -11,7 +11,6 @@ import android.widget.Toast
 import com.example.shashankmohabia.ciba.Core.db
 import com.example.shashankmohabia.ciba.R
 import com.example.shashankmohabia.ciba.Utils.Constants.currMerchant
-import com.example.shashankmohabia.ciba.Utils.Extensions.ItemData
 import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.add_menu_item_merchant.*
 import kotlinx.android.synthetic.main.toolbar_merchant.*

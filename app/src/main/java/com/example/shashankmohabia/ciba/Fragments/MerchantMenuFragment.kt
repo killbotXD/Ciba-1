@@ -20,6 +20,7 @@ import com.google.firebase.firestore.Query
 import kotlinx.android.synthetic.main.merchant_menu_fragment.*
 import kotlinx.android.synthetic.main.toolbar_merchant.*
 
+
 class MerchantMenuFragment:Fragment(){
 
     var adapterMerchantMenu:MerchantMenuAdapter?=null
@@ -58,7 +59,5 @@ class MerchantMenuFragment:Fragment(){
         super.onStop()
         adapterMerchantMenu!!.stopListening()
     }
-    public fun fsafe(){
 
-    }
 }

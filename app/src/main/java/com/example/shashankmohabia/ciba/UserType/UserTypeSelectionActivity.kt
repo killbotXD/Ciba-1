@@ -12,7 +12,7 @@ import com.example.shashankmohabia.ciba.R
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 
-var isCustomer : Boolean = false
+var isCustomer : Boolean = true
 class UserTypeSelectionActivity:AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

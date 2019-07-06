@@ -3,6 +3,7 @@ package com.example.shashankmohabia.ciba.Utils.Extensions
 import android.content.Context
 import android.content.Intent
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,9 +19,14 @@ import com.firebase.ui.firestore.FirestoreRecyclerOptions
 class MenuAdapter(options: FirestoreRecyclerOptions<ItemData>, private val mContext: Context) : FirestoreRecyclerAdapter<ItemData, MenuAdapter.ItemHolder>(options) {
 
     override fun onBindViewHolder(holder: ItemHolder, position: Int, model: ItemData) {
+        Log.d("on_bind_view_holder","working")
         holder.textViewName.text = model.name
         holder.textViewPrice.text = model.price.toString()
-
+        if(model.name.isNullOrEmpty()){
+            Log.d("ADAPTERNULL","true")
+        }else{
+            Log.d("ADAPTERNULL","False")
+        }
         holder.layout.setOnClickListener {
             val intent=Intent(mContext, MenuExpanded::class.java)
             intent.putExtra("availableOrNot",model.availableOrNot)
@@ -28,7 +34,7 @@ class MenuAdapter(options: FirestoreRecyclerOptions<ItemData>, private val mCont
             intent.putExtra("itemName",model.name)
             intent.putExtra("itemPrice",model.price)
             intent.putExtra("prepTime",model.preptime)
-            intent.putExtra("id",snapshots.getSnapshot(position).id)
+            intent.putExtra("id",model.id)
             mContext.startActivity(intent)
 
 
@@ -38,7 +44,7 @@ class MenuAdapter(options: FirestoreRecyclerOptions<ItemData>, private val mCont
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemHolder {
        val v : View = LayoutInflater.from(parent.context).inflate(R.layout.menu_item,parent,false)
-
+        Log.d("on_create_view_holder","working")
         return ItemHolder(v)
     }
 

@@ -2,11 +2,11 @@ package com.example.shashankmohabia.ciba.Utils.Extensions
 
 class ItemData{
     var availableOrNot : String?=null
-    var vegOrNot : Boolean? = null
+    var id :String? = null
     var name : String? =null
     var preptime : String? =null
     var price :Int = 0
-    var id :String? = null
+    var vegOrNot : Boolean? = null
     constructor(){
 
         //empty constructor needed

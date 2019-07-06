@@ -59,6 +59,7 @@ class MerchantPop:Activity(){
         merchant["name"] = name
         merchant["paytmNumber"] = paytmNumber
         merchant["prof_pic"] = picURL
+        merchant["id"]=""
         currMerchant.email = email
         currMerchant.name = name
         currMerchant.paytmNumber = paytmNumber
@@ -66,6 +67,8 @@ class MerchantPop:Activity(){
 
         db.collection("MerchantList")
                 .add(merchant).addOnSuccessListener {
+                    it.update("id",it.id)
+                    currMerchant.id=it.id
                     Toast.makeText(this, "User Added to list of users", Toast.LENGTH_SHORT).show()
                     currMerchant.id=it.id
                 }

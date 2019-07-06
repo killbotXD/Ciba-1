@@ -308,7 +308,7 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
 
     private fun setupSearchRecyclerView() {
-        val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
+        val recyclerView = findViewById<RecyclerView>(R.id.customer_recycler_view_menu)
         val layoutManager = LinearLayoutManager(this)
         layoutManager.orientation = LinearLayoutManager.VERTICAL
         recyclerView.layoutManager = layoutManager

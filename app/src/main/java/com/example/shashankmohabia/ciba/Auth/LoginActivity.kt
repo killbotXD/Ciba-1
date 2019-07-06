@@ -31,7 +31,7 @@ class LoginActivity : AppCompatActivity() {
     lateinit var mGoogleSignInClient: GoogleSignInClient
     lateinit var gso: GoogleSignInOptions
     val RC_SIGN_IN: Int = 1
-    var isCustomer: Boolean = false
+    var isCustomer: Boolean = true
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

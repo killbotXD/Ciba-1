@@ -1,13 +1,16 @@
 package com.example.shashankmohabia.ciba.Fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.example.shashankmohabia.ciba.Core.MerchantList
 import com.example.shashankmohabia.ciba.R
 import com.example.shashankmohabia.ciba.Utils.Constants.currMerchant
 import com.example.shashankmohabia.ciba.Utils.Constants.currUser
@@ -28,7 +31,9 @@ class CustomerProfileFragment:Fragment(){
         Glide.with(this).load(currUser.profileUrl).apply(RequestOptions.circleCropTransform()).into(customer_profile_img)
         cur_merchant.text= currMerchant.name
         btn_change_merchant.setOnClickListener {
-            Toast.makeText(this.context,"change merchant",Toast.LENGTH_SHORT).show()
+            val intent= Intent(this.context,MerchantList::class.java)
+            activity!!.startActivity(intent)
+            activity!!.finish()
         }
         customer_edit_profile_button.setOnClickListener {
             Toast.makeText(this.context,"Edit button clicked",Toast.LENGTH_SHORT).show()

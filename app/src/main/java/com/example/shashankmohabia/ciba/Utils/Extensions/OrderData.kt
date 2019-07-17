@@ -1,5 +1,6 @@
 package com.example.shashankmohabia.ciba.Utils.Extensions
 
+import java.sql.Timestamp
 import java.util.*
 
 class OrderData{
@@ -12,14 +13,13 @@ class OrderData{
     var placedTo : String? = null
     var placedByNumber : String ? =null
     var time : Date? = null
-    var children :MutableList<ItemData>? =null
 
     constructor(){
 
         //empty constructor needed
     }
 
-    constructor(isAprooved: Boolean?, isCancled: Boolean?, isDelivered: Boolean?, isPaymentRecieved: Boolean?, orderId: String?, placedBy: String?, placedTo: String?, placedByNumber: String?, time: Date?, children: MutableList<ItemData>?) {
+    constructor(isAprooved: Boolean?, isCancled: Boolean?, isDelivered: Boolean?, isPaymentRecieved: Boolean?, orderId: String?, placedBy: String?, placedTo: String?, placedByNumber: String?, time: Date?) {
         this.isAprooved = isAprooved
         this.isCancled = isCancled
         this.isDelivered = isDelivered
@@ -29,7 +29,6 @@ class OrderData{
         this.placedTo = placedTo
         this.placedByNumber = placedByNumber
         this.time = time
-        this.children = children
     }
 
 

@@ -31,7 +31,7 @@ class LoginActivity : AppCompatActivity() {
     lateinit var mGoogleSignInClient: GoogleSignInClient
     lateinit var gso: GoogleSignInOptions
     val RC_SIGN_IN: Int = 1
-    var isCustomer: Boolean = true
+    var isCustomer: Boolean? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -81,7 +81,7 @@ class LoginActivity : AppCompatActivity() {
         var n = 0
 
         var query = dbref.collection("UserList")
-        if (isCustomer.equals(false)) {
+        if (isCustomer!!.equals(false)) {
             query = dbref.collection("MerchantList")
         }
         query.get().addOnSuccessListener {
@@ -92,7 +92,7 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
             if (n > 0) {
-                if (isCustomer.equals(true)) {
+                if (isCustomer!!.equals(true)) {
                     //adds current logged in user data to an object current user
                     Toast.makeText(this, currUser.name.toString(),Toast.LENGTH_SHORT).show()
                     addCurrentUserData()
@@ -113,7 +113,7 @@ class LoginActivity : AppCompatActivity() {
             } else {
                 Toast.makeText(this, "User is not registered please register", Toast.LENGTH_SHORT).show()
 
-                if (isCustomer.equals(true)) {
+                if (isCustomer!!.equals(true)) {
                     val int = Intent(this, UserPop::class.java)
                     int.putExtra("email", account!!.email.toString())
                     int.putExtra("picURL", account.photoUrl.toString())
@@ -162,7 +162,7 @@ class LoginActivity : AppCompatActivity() {
     }
         //I dont remember why account is an argumet
     fun updateUI(account: GoogleSignInAccount?) {
-        if (isCustomer.equals(true)) {
+        if (isCustomer!!.equals(true)) {
             val intent = Intent(this, MerchantList::class.java)
             startActivity(intent)
             finish()

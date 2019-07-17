@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.shashankmohabia.ciba.Core.dbmerch
 import com.example.shashankmohabia.ciba.R
+import com.example.shashankmohabia.ciba.Utils.Constants.currMerchant
 import com.example.shashankmohabia.ciba.Utils.Extensions.MerchantOrderAdapter
 import com.example.shashankmohabia.ciba.Utils.Extensions.OrderData
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
@@ -18,7 +19,7 @@ import kotlinx.android.synthetic.main.toolbar_merchant.*
 
 class MerchantOrdersFragment: Fragment(){
     var adapterMerchantOrder: MerchantOrderAdapter? = null
-    var queryMerchantOrders = dbmerch.collection("Orders").orderBy("time")//.whereArrayContains("placedTo", currMerchant.name.toString())
+    var queryMerchantOrders = dbmerch.collection("Orders1").whereEqualTo("placedTo", currMerchant.name.toString())//.whereArrayContains("placedTo", currMerchant.name.toString())
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.merchant_orders_fragment,container,false)

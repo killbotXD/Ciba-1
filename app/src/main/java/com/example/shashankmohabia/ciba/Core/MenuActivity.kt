@@ -53,10 +53,10 @@ import org.w3c.dom.Text
 lateinit var mGoogleSignInClient: GoogleSignInClient
 lateinit var gso: GoogleSignInOptions
 val db = FirebaseFirestore.getInstance()
-val menuref = db.collection("Users")
+val menuref = db.collection("MerchantList/${currMerchant.id.toString()}$/Menu")
 var searchAdapter: SearchAdapter? = null
 
-
+//I think i should rename this to customer activity
 class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     override fun onNavigationItemSelected(p0: MenuItem): Boolean {
         var fragment:Fragment=CustomerMenuFragment()
@@ -277,7 +277,7 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 name = collection.data["name"].toString()
                 s.toString().toLowerCase()
                 name!!.toLowerCase()
-
+                //lol I made a function to compare them :P
                 if (checkIfEqual(name!!.toLowerCase(), s)) {
                     singleDataItem.preptime = collection.data["preptime"].toString()
                     singleDataItem.name = name

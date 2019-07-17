@@ -18,6 +18,7 @@ import android.widget.TextView
 import android.widget.Toast
 import com.example.shashankmohabia.ciba.Auth.LoginActivity
 import com.example.shashankmohabia.ciba.R
+import com.example.shashankmohabia.ciba.Utils.Constants.currMerchant
 import com.example.shashankmohabia.ciba.Utils.Constants.currUser
 import com.example.shashankmohabia.ciba.Utils.Extensions.CartAdapter
 import com.example.shashankmohabia.ciba.Utils.Extensions.data
@@ -29,7 +30,7 @@ import kotlinx.android.synthetic.main.activity_cart.*
 import org.w3c.dom.Text
 import java.util.*
 
-val orderRef = db.collection("Orders")
+val orderRef = db.collection("Orders1")
 
 var ordersMap = HashMap<String,Any>()
 class Cart : AppCompatActivity() {
@@ -53,12 +54,12 @@ class Cart : AppCompatActivity() {
             ordersMap["orderId"]= ""
             ordersMap["placedBy"]=account!!.displayName.toString()
             ordersMap["placedByNumber"]= currUser.number.toString()
-            ordersMap["placedTo"]="THAR OASIS"
+            ordersMap["placedTo"]= currMerchant.name.toString()
             ordersMap["time"]=Calendar.getInstance().time
 
             orderRef.add(ordersMap).addOnSuccessListener {documentRefrence->
                 documentRefrence.update("orderId",documentRefrence.id)
-                val itemsList = db.collection("Orders/${documentRefrence.id}/items")
+                val itemsList = db.collection("Orders1/${documentRefrence.id}/items")
                 var itemData = HashMap<String,Any>()
                 for(item in data.items){
                     itemData["amt"]=item.amt

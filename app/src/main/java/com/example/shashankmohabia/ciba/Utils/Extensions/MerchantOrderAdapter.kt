@@ -21,6 +21,7 @@ class MerchantOrderAdapter(options: FirestoreRecyclerOptions<OrderData>, private
         holder.placedByNumber.text=model.placedByNumber
         holder.placedByTime.text=model.time.toString()
 
+
         //add onclick listener?
     }
 

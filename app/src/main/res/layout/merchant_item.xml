@@ -50,7 +50,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/placed_on"
             android:layout_marginTop="14dp"
-            android:background="#0AEB0A"
+            android:layout_marginLeft="10dp"
+            android:backgroundTint="@color/green_dark"
             android:paddingTop="8dp"
             android:text="ACCEPT"
             android:textSize="12sp"
@@ -64,11 +65,61 @@
             android:layout_marginTop="14dp"
             android:layout_toEndOf="@id/accept_button"
             android:layout_toRightOf="@id/accept_button"
-            android:background="#ef0000"
+            android:backgroundTint="#ef0000"
             android:paddingTop="8dp"
             android:text="DECLINE"
             android:textSize="12sp"
             />
+        <android.support.v7.widget.CardView
+            android:id="@+id/child_rv_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/accept_button"
+            android:elevation="12dp"
+            android:visibility="gone"
+            app:cardCornerRadius="8dp">
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/child_rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/accept_button"/>
+        </android.support.v7.widget.CardView>
+        <TextView
+            android:id="@+id/total_qty_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/child_rv_card"
+            android:layout_marginTop="10dp"
+            android:text="Total Quantity"
+            android:visibility="gone"/>
+        <TextView
+            android:id="@+id/Order_qty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/child_rv_card"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="10dp"
+            android:text="Total Quantity"
+            android:visibility="gone"/>
+        <TextView
+            android:id="@+id/total_amt_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Order_qty"
+            android:layout_marginTop="10dp"
+            android:text="Total Amount"
+            android:visibility="gone"/>
+        <TextView
+            android:id="@+id/Order_amt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Order_qty"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="10dp"
+            android:text="Total Amount"
+            android:visibility="gone"/>
+
+
     </RelativeLayout>
 
 </android.support.v7.widget.CardView>

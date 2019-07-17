@@ -30,11 +30,6 @@ class MerchantOrdersFragment: Fragment(){
         setUpRecyclerView(queryMerchantOrders)
         activity!!.toolbar_menu_merchant.title = "Orders"
     }
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-
-    }
     private fun setUpRecyclerView(query: Query) {
         val options: FirestoreRecyclerOptions<OrderData> = FirestoreRecyclerOptions.Builder<OrderData>()
                 .setQuery(query, OrderData::class.java)

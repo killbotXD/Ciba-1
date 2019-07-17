@@ -32,7 +32,7 @@ return item.size   }
     class MyViewHolder(itemView : View) :RecyclerView.ViewHolder(itemView){
         val itemName = itemView.findViewById<TextView>(R.id.text_view_cart_item_name)
         val itemRate = itemView.findViewById<TextView>(R.id.text_view_cart_item_rate)
-        val qty = itemView.findViewById<TextView>(R.id.text_view_cart_item_qty)
+        val qty = itemView.findViewById<TextView>(R.id.text_view_order_item_qty)
         val amt = itemView.findViewById<TextView>(R.id.text_view_cart_item_amt)
         val layout = itemView.findViewById<LinearLayout>(R.id.relative_layout_cart_item)
         fun setData(cartData: CartData,pos:Int){

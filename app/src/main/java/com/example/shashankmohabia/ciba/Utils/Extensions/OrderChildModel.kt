@@ -1,16 +1,18 @@
 package com.example.shashankmohabia.ciba.Utils.Extensions
 
 class OrderChildModel {
-    constructor(amt: String?, childId: String?, qty: String?) {
-        this.amt = amt
-        this.childId = childId
-        this.qty = qty
-    }
+
     constructor(){
         //needed empty constructor
     }
 
-    var amt: String? = null
+    constructor(amt: Int?, childId: String?, qty: Int?) {
+        this.amt = amt
+        this.childId = childId
+        this.qty = qty
+    }
+
+    var amt: Int? = null
     var childId: String? = null
-    var qty: String? = null
+    var qty: Int? = null
 }

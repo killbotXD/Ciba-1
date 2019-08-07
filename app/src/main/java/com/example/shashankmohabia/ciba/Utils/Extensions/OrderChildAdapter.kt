@@ -19,15 +19,19 @@ class OrderChildAdapter(options: FirestoreRecyclerOptions<OrderChildModel>):Fire
     }
 
     override fun onBindViewHolder(holder: OrderChildAdapter.holder, position: Int, model: OrderChildModel) {
-        val queryItem = db.collection("MerchantList/${currMerchant.id.toString()}$/Menu").whereEqualTo("id",model.childId)
-        queryItem.get().addOnSuccessListener {
-            for(doc in it){
-                holder.itemView.text_view_order_item_name.text=doc["name"].toString()
-                holder.itemView.text_view_order_item_amt.text=model.amt.toString()
-                holder.itemView.text_view_order_item_qty.text=model.qty.toString()
-                holder.itemView.text_view_order_item_rate.text=doc["price"].toString()
-            }
-        }
+        holder.itemView.text_view_order_item_name.text=model.childId
+        holder.itemView.text_view_order_item_amt.text=model.amt.toString()
+        holder.itemView.text_view_order_item_qty.text=model.qty.toString()
+        holder.itemView.text_view_order_item_rate.text=model.qty.toString()
+        //val queryItem = db.collection("MerchantList/${currMerchant.id.toString()}$/Menu").whereEqualTo("id",model.childId)
+        //        queryItem.get().addOnSuccessListener {
+        //            for(doc in it){
+        //                holder.itemView.text_view_order_item_name.text=doc["name"].toString()
+        //                holder.itemView.text_view_order_item_amt.text=model.amt.toString()
+        //                holder.itemView.text_view_order_item_qty.text=model.qty.toString()
+        //                holder.itemView.text_view_order_item_rate.text=doc["price"].toString()
+        //            }
+        //        }//
 
     }
 

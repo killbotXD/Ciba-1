@@ -37,8 +37,9 @@ var adapterMerchantOrderChild:OrderChildAdapter ? =null
                 adapterMerchantOrderChild!!.startListening()
             holder.itemView.total_qty_text.visibility=View.VISIBLE
             //holder.itemView.Order_qty.visibility=View.VISIBLE
-           // holder.itemView.total_amt_text.visibility=View.VISIBLE
-            holder.itemView.total_amt.visibility=View.VISIBLE}
+            holder.itemView.total_amt_text.visibility=View.VISIBLE
+           // holder.itemView.total_amt.visibility=View.VISIBLE
+                }
             else if(open){
                 open=!open
                 //adapterMerchantOrderChild!!.stopListening()
